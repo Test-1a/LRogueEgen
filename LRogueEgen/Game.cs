@@ -22,7 +22,7 @@ namespace LRogueEgen
         {
             do
             {
-                Draw();
+                DrawMap();
             } while (gameInProgress);
            // do
            // {
@@ -35,9 +35,17 @@ namespace LRogueEgen
            // } while game in progress (true);
         }
 
-        private void Draw()
+        private void DrawMap()
         {
-            throw new NotImplementedException();
+            for (int y = 0; y < map.Height; y++)
+            {
+                for (int x = 0; x < map.Width; x++)
+                {
+                    var cell = map.GetCell(y, x);
+                    Console.Write(cell.Symbol);
+                }
+                Console.WriteLine();
+            }
         }
 
         private void Initialize()   //this is done once before the game starts

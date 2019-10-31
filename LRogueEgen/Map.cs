@@ -1,4 +1,6 @@
-﻿namespace LRogueEgen
+﻿using System;
+
+namespace LRogueEgen
 {
     internal class Map
     {
@@ -30,6 +32,11 @@
                 }
             }
 
+        }
+
+        internal Cell GetCell(int y, int x)   //ändra från "object" to "Cell"
+        {
+            return cells[y, x];
         }
     }
 }
