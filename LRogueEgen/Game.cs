@@ -41,20 +41,41 @@ namespace LRogueEgen
             {
                 for (int x = 0; x < map.Width; x++)
                 {
-                    var cell = map.GetCell(y, x);
-                    Console.Write(cell.Symbol);
+                    Cell cell = map.GetCell(y, x);
+                                        
+                    //Console.ForegroundColor = cell?.Color;  //if cell is null we do not try to access "Color"
+                    //Console.ForegroundColor = cell?.Color ?? ConsoleColor.White;    //if cell?.Color == null 
+                                                                                    //we chose ConsoleColor.White again
+                    //Console.Write(cell.Symbol);
+                    IDrawable drawable = cell;
+
+                    foreach (var creature in map.Creatures)
+                    {
+                        if(creature.Cell == cell)
+                        {
+                            drawable = creature;
+                            break;
+                        }
+                    }
+                    Console.ForegroundColor = drawable?.Color ?? ConsoleColor.White;
+                    Console.Write(drawable?.Symbol);
+
                 }
                 Console.WriteLine();
             }
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         private void Initialize()   //this is done once before the game starts
         {
             //ToDo: Read from config file later
             map = new Map(width: 10, height: 10);    //Start by creating the gameplan
-                                                         //hardcode the size of the map
+                                                     //hardcode the size of the map
 
-            hero = new Hero();
+            var heroCell = map.GetCell(0, 0);
+
+            hero = new Hero(heroCell);
+            map.Creatures.Add(hero);
         }
 
     }

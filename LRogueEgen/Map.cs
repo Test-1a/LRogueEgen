@@ -1,24 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LRogueEgen
 {
-    internal class Map
+    internal class Map  //knows where all creature are
     {
-        private readonly int width;     //readonly => cannot be changed during the game
-        private readonly int height;
+        //private readonly int width;     //readonly => cannot be changed during the game
+       // private readonly int height;
+
+        public int Width { get; }
+        public int Height { get; }
 
         //public int MyProperty { get; set; }
 
-        public int Width => width;  //this means the same as the method for height
-        public int Height { get { return height; } }
+       // public int Width => width;  //this means the same as the method for height
+       // public int Height { get { return height; } }
 
         private readonly Cell[,] cells; //2-dimentionell array (will be
                                         //filled by cells)
 
+        public List<Creature> Creatures { get; set; } = new List<Creature>();
+
         public Map(int width, int height)
         {
-            this.width = width;
-            this.height = height;
+            this.Width = width;
+            this.Height = height;
 
             cells = new Cell[height, width];    //kvadratisk spelplan (antal rader och antal kolumner)
                                                 //contains storageboxes for cells
