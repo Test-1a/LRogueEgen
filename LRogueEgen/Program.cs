@@ -4,7 +4,7 @@ namespace LRogueEgen
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) //keep the code in Main to a minimum
         {
             Game game = new Game();
             game.Run();
