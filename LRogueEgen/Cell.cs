@@ -5,9 +5,14 @@ namespace LRogueEgen
 {
     internal class Cell : IDrawable
     {
-        public Cell()
+        public int X { get;  }
+        public int Y { get; }
+
+        public Cell(int y, int x)
         {
             Color = ConsoleColor.Red;
+            X = x;
+            Y = y;
         }
 
         public List<Item> Items { get; set; } = new List<Item>();

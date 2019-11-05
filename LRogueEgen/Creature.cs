@@ -14,6 +14,6 @@ namespace LRogueEgen
         public string Symbol { get; } = "C ";   //Om inte Symbol är satt till något sätts den till "C "
                                                 //defaultvalue
 
-       public Cell Cell { get; }
+       public Cell Cell { get; set; }
     }
 }

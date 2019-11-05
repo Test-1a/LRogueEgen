@@ -22,12 +22,19 @@ namespace LRogueEgen
         {
             do
             {
+                //draw map
+                DrawMap();
+
+                //   get command
+                GetInput();
+
+                //draw map
                 DrawMap();
             } while (gameInProgress);
-           // do
-           // {
-           //   draw map
-           //   get command
+            // do
+            // {
+
+           
            //   execute action
            //   draw map
            //enemy actions
@@ -35,35 +42,38 @@ namespace LRogueEgen
            // } while game in progress (true);
         }
 
+        private void GetInput()
+        {
+            ConsoleKey keyPressed = UI.GetKey();
+
+            switch (keyPressed)
+            {
+                case ConsoleKey.LeftArrow:
+                    Move(hero.Cell.X - 1, hero.Cell.Y);
+                    break;
+                case ConsoleKey.UpArrow:
+                    Move(hero.Cell.X, hero.Cell.Y - 1);
+                    break;
+                case ConsoleKey.RightArrow:
+                    Move(hero.Cell.X + 1, hero.Cell.Y);
+                    break;
+                case ConsoleKey.DownArrow:
+                    Move(hero.Cell.X, hero.Cell.Y + 1);
+                    break;
+             }
+        }
+
+        private void Move(int x, int y)
+        {
+            var newPosition = map.GetCell(y, x);
+            if (newPosition != null) hero.Cell = newPosition;
+
+        }
+
         private void DrawMap()
         {
-            for (int y = 0; y < map.Height; y++)
-            {
-                for (int x = 0; x < map.Width; x++)
-                {
-                    Cell cell = map.GetCell(y, x);
-                                        
-                    //Console.ForegroundColor = cell?.Color;  //if cell is null we do not try to access "Color"
-                    //Console.ForegroundColor = cell?.Color ?? ConsoleColor.White;    //if cell?.Color == null 
-                                                                                    //we chose ConsoleColor.White again
-                    //Console.Write(cell.Symbol);
-                    IDrawable drawable = cell;
-
-                    foreach (var creature in map.Creatures)
-                    {
-                        if(creature.Cell == cell)
-                        {
-                            drawable = creature;
-                            break;
-                        }
-                    }
-                    Console.ForegroundColor = drawable?.Color ?? ConsoleColor.White;
-                    Console.Write(drawable?.Symbol);
-
-                }
-                Console.WriteLine();
-            }
-            Console.ForegroundColor = ConsoleColor.White;
+            UI.clear();
+            UI.Draw(map);
         }
 
         private void Initialize()   //this is done once before the game starts
