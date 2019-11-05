@@ -12,14 +12,18 @@ namespace LRogueEgen
                 {
                     Cell cell = map.GetCell(y, x);
 
-                    //Console.ForegroundColor = cell?.Color;  //if cell is null we do not try to access "Color"
+                                                                  //if cell is null we do not try to access "Color"
                     //Console.ForegroundColor = cell?.Color ?? ConsoleColor.White;    //if cell?.Color == null 
-                    //we chose ConsoleColor.White again
-                    //Console.Write(cell.Symbol);
+                                                                    //we chose ConsoleColor.White again
+                   
 
-                    //IDrawable drawable = cell;
+                     //removed due to Extensions
+                    //IDrawable drawable = map.CreatureAt(cell) ?? cell;    //check if a creature is in the cell
 
-                    IDrawable drawable = map.CreatureAt(cell) ?? cell;    //check if a creature is in the cell
+                    //Extensions
+                    IDrawable drawable = map.Creatures.CreatureAtExten(cell) ?? cell;   //CreaturAtExten är en Extension-metod
+                                                                                        //som man kommer åt via NameSpace
+                    
                     //var drawable = map.Creatures.FirstOrDefault((x) => x.Cell == cell) as IDrawable ?? cell;
 
                     //removed due to "IDrawable drawable = map.CreatureAt(cell) ?? cell;"
