@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace LRogueEgen
 {
@@ -30,7 +31,9 @@ namespace LRogueEgen
 
                 //draw map
                 DrawMap();
-            } while (gameInProgress);
+            } while (true);                 //skillnad 1
+            //} while (gameInProgress);     //skillnad 1
+
             // do
             // {
 

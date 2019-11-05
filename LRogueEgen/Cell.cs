@@ -7,14 +7,6 @@ namespace LRogueEgen
     {
         public int X { get;  }
         public int Y { get; }
-
-        public Cell(int y, int x)
-        {
-            Color = ConsoleColor.Red;
-            X = x;
-            Y = y;
-        }
-
         public List<Item> Items { get; set; } = new List<Item>();
         public string Symbol => ". ";   //public string Symbol { get { return ". "; } }
 
@@ -28,7 +20,17 @@ namespace LRogueEgen
 
         public ConsoleColor Color { get; set; }
 
-        public Creature Creature { get; set; }
+        //ToDo: Remove?
+        //public Creature Creature { get; set; }
+
+        public Cell(int y, int x)
+        {
+            Color = ConsoleColor.Red;
+            X = x;
+            Y = y;
+        }
+
+
 
 
     }

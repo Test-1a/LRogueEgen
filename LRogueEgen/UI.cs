@@ -22,14 +22,16 @@ namespace LRogueEgen
                     IDrawable drawable = map.CreatureAt(cell) ?? cell;    //check if a creature is in the cell
                     //var drawable = map.Creatures.FirstOrDefault((x) => x.Cell == cell) as IDrawable ?? cell;
 
-                    foreach (var creature in map.Creatures)
-                    {
-                        if (creature.Cell == cell)
-                        {
-                            drawable = creature;
-                            break;
-                        }
-                    }
+                    //removed due to "IDrawable drawable = map.CreatureAt(cell) ?? cell;"
+                    //foreach (var creature in map.Creatures)
+                    //{
+                    //    if (creature.Cell == cell)
+                    //    {
+                    //        drawable = creature;
+                    //        break;
+                    //    }
+                    //}
+
                     Console.ForegroundColor = drawable?.Color ?? ConsoleColor.White;
                     Console.Write(drawable?.Symbol);
 
