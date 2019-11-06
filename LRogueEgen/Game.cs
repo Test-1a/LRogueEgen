@@ -101,6 +101,10 @@ namespace LRogueEgen
 
             hero = new Hero(heroCell);
             map.Creatures.Add(hero);
+            map.Creatures.Add(new Goblin(map.GetCell(4, 7)));
+            map.Creatures.Add(new Goblin(map.GetCell(2, 9)));
+            map.Creatures.Add(new Ogre(map.GetCell(2, 8)));
+            map.Creatures.Add(new Ogre(map.GetCell(8, 3)));
         }
 
     }
