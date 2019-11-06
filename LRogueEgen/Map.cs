@@ -35,7 +35,8 @@ namespace LRogueEgen
             {
                 for (int x = 0; x < width; x++)
                 {
-                    cells[y, x] = new Cell(y, x);
+                    //cells[y, x] = new Cell(y, x);
+                    cells[y, x] = new Cell(new Position(y, x));
                 }
             }
 
@@ -55,6 +56,11 @@ namespace LRogueEgen
             return cells[y, x];
             
 
+        }
+
+        internal Cell GetCell(Position newPosition)
+        {
+            return GetCell(newPosition.Y, newPosition.X);
         }
     }
 }
