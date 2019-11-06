@@ -53,19 +53,23 @@ namespace LRogueEgen
             {
                 case ConsoleKey.LeftArrow:
                     //Move(hero.Cell.X - 1, hero.Cell.Y);
-                    Move(new Position(0, -1));
+                    //Move(new Position(0, -1));
+                    Move(Direction.W);
                     break;
                 case ConsoleKey.UpArrow:
                     //Move(hero.Cell.X, hero.Cell.Y - 1);
-                    Move(new Position(-1, 0));
+                    //Move(new Position(-1, 0));
+                    Move(Direction.N);
                     break;
                 case ConsoleKey.RightArrow:
                     //Move(hero.Cell.X + 1, hero.Cell.Y);
-                    Move(new Position(0, 1));
+                    //Move(new Position(0, 1));
+                    Move(Direction.E);
                     break;
                 case ConsoleKey.DownArrow:
                     //Move(hero.Cell.X, hero.Cell.Y + 1);
-                    Move(new Position(1, 0));
+                    //Move(new Position(1, 0));
+                    Move(Direction.S);
                     break;
              }
         }
