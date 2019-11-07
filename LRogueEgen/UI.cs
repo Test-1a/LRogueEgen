@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace LRogueEgen
 {
@@ -12,17 +13,22 @@ namespace LRogueEgen
                 {
                     Cell cell = map.GetCell(y, x);
 
-                                                                  //if cell is null we do not try to access "Color"
+                    //if cell is null we do not try to access "Color"
                     //Console.ForegroundColor = cell?.Color ?? ConsoleColor.White;    //if cell?.Color == null 
-                                                                    //we chose ConsoleColor.White again
-                   
+                    //we chose ConsoleColor.White again
 
-                     //removed due to Extensions
+
+                    //removed due to Extensions
                     //IDrawable drawable = map.CreatureAt(cell) ?? cell;    //check if a creature is in the cell
 
+                    //removed when we started to add Items to the map (see below)
                     //Extensions
-                    IDrawable drawable = map.Creatures.CreatureAtExten(cell) ?? cell;   //CreaturAtExten är en Extension-metod
-                                                                                        //som man kommer åt via NameSpace
+                    //IDrawable drawable = map.Creatures.CreatureAtExten(cell) ?? cell;   //CreaturAtExten är en Extension-metod
+                    //som man kommer åt via NameSpace
+
+                    IDrawable drawable = map.Creatures.CreatureAtExten(cell) ??
+                        (IDrawable)cell.Items.FirstOrDefault() ??
+                        cell;
                     
                     //var drawable = map.Creatures.FirstOrDefault((x) => x.Cell == cell) as IDrawable ?? cell;
 

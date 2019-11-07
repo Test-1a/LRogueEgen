@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LRogueEgen", "LRogueEgen\LRogueEgen.csproj", "{1F803821-2037-4A72-84AF-AC948B6CDF73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LRogueEgen", "LRogueEgen\LRogueEgen.csproj", "{1F803821-2037-4A72-84AF-AC948B6CDF73}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LimitedList", "..\LimitedList\LimitedList\LimitedList.csproj", "{E89F091C-CB73-44BC-B3E1-A4EF7E3DF8DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1F803821-2037-4A72-84AF-AC948B6CDF73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F803821-2037-4A72-84AF-AC948B6CDF73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F803821-2037-4A72-84AF-AC948B6CDF73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E89F091C-CB73-44BC-B3E1-A4EF7E3DF8DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E89F091C-CB73-44BC-B3E1-A4EF7E3DF8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E89F091C-CB73-44BC-B3E1-A4EF7E3DF8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E89F091C-CB73-44BC-B3E1-A4EF7E3DF8DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

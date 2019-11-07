@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace LRogueEgen
 {
@@ -7,7 +8,7 @@ namespace LRogueEgen
     {
         private Map map;
         private Hero hero;
-        private bool gameInProgress;
+        private bool gameInProgress = true;
 
         public Game()
         {
@@ -31,8 +32,8 @@ namespace LRogueEgen
 
                 //draw map
                 DrawMap();
-            } while (true);                 //skillnad 1
-            //} while (gameInProgress);     //skillnad 1
+            //} while (true);                 //skillnad 1
+            } while (gameInProgress);     //skillnad 1
 
             // do
             // {
@@ -71,7 +72,32 @@ namespace LRogueEgen
                     //Move(new Position(1, 0));
                     Move(Direction.S);
                     break;
+                case ConsoleKey.P:
+                    PickUp();
+                    break;
+                case ConsoleKey.I:
+                    Inventory();
+                    break;
+                case ConsoleKey.Q:
+                    gameInProgress = false;
+                    break;
              }
+        }
+
+        private void Inventory()
+        {
+            foreach (var item in hero.Backpack)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        private void PickUp()
+        {
+            var items = hero.Cell.Items;
+            var item = items.FirstOrDefault();
+            if (item == null) return;
+            if (hero.Backpack.Add(item)) items.Remove(item);
         }
 
         //private void Move(int x, int y)
@@ -105,6 +131,10 @@ namespace LRogueEgen
             map.Creatures.Add(new Goblin(map.GetCell(2, 9)));
             map.Creatures.Add(new Ogre(map.GetCell(2, 8)));
             map.Creatures.Add(new Ogre(map.GetCell(8, 3)));
+            map.GetCell(3, 3).Items.Add(Item.Coin());
+            map.GetCell(3, 6).Items.Add(Item.Hat());
+            map.GetCell(2, 2).Items.Add(Item.Coin());
+            map.GetCell(3, 3).Items.Add(Item.Hat());
         }
 
     }
